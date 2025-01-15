@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #2d89ef;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+        }
+
+        .login-container {
+            max-width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .login-container input {
+            width: calc(100% - 20px);
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2d89ef;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-container button:hover {
+            background-color: #226bc0;
+        }
+
+        .dashboard {
+            padding: 20px;
+        }
+
+        .dashboard-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .dashboard-card h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .dashboard-card button {
+            padding: 10px 20px;
+            background-color: #2d89ef;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .dashboard-card button:hover {
+            background-color: #226bc0;
+        }
+    </style>
+    <script>
+        function showDashboard() {
+            const username = document.querySelector('input[type="text"]').value;
+            const password = document.querySelector('input[type="password"]').value;
+
+            if (username === "user123" && password === "password123") {
+                document.querySelector('.login-container').style.display = 'none';
+                document.querySelector('.dashboard').style.display = 'block';
+            } else {
+                alert("Invalid username or password. Please try again.");
+            }
+        }
+
+        function openGoogleClassroom() {
+            window.open('https://classroom.google.com/h', '_blank');
+        }
+
+        function openIReady() {
+            window.open('https://clever.com/oauth/authorize?channel=clever-portal&client_id=c7a52c5c9228e8623a71&confirmed=true&district_id=56a7ab007aac5001000007c0&redirect_uri=https%3A%2F%2Flogin.i-ready.com%2Flogin%2Fclever&response_type=code', '_blank');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">EduPortal</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Features</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <div class="login-container">
+        <h2>Welcome to EduPortal</h2>
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
+        <button onclick="showDashboard()">Login</button>
+    </div>
+
+    <div class="dashboard" style="display: none;">
+        <div class="dashboard-card">
+            <h3>Google Classroom</h3>
+            <button onclick="openGoogleClassroom()">Go to Google Classroom</button>
+        </div>
+        <div class="dashboard-card">
+            <h3>I-Ready</h3>
+            <button onclick="openIReady()">Go to I-Ready</button>
+        </div>
+    </div>
+</body>
+</html>
